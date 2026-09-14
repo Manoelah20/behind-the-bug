@@ -239,12 +239,13 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="bg-[#0b0b0d] px-6 pb-8 text-white/30 lg:px-10">
-        <div className="mx-auto flex max-w-7xl justify-between border-t border-white/10 pt-6 font-mono text-[10px] tracking-[0.1em] uppercase">
-          <span>Behind the Bug</span>
-          <span>Front-end / 2026</span>
-        </div>
-      </footer>
+      <footer className="border-t border-white/10">
+  <div className="mx-auto flex max-w-6xl flex-col gap-2 px-6 py-8 text-xs text-white/35 md:flex-row md:items-center md:justify-between">
+    <p>© 2026 Manoela Harrison · Behind the Bug</p>
+
+    <p>Investigações técnicas sobre problemas de Front-end.</p>
+  </div>
+</footer>
     </main>
   );
 }
