@@ -1,4 +1,5 @@
 import Link from "next/link";
+
 import StatePanel from "../../../components/StatePanel";
 import RootCauseEmpty from "../../../components/RootCauseEmpty";
 import EmptyResultCorrected from "../../../components/EmptyResultCorrected";
@@ -57,53 +58,65 @@ const investigacao = [
 
 export default function Caso002() {
   return (
-    <main className="min-h-screen bg-[#f7f7f5] text-[#171717]">
-      <header className="border-b border-black/8">
+    <main className="min-h-screen bg-[#0b0b0d] text-[#f4f1eb]">
+      <header className="border-b border-white/10">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-10">
           <Link
             href="/"
-            className="text-sm font-semibold tracking-[0.18em] uppercase"
+            className="font-mono text-sm font-medium tracking-[0.18em] uppercase"
           >
             Behind the Bug
           </Link>
 
           <Link
             href="/#casos"
-            className="text-sm text-black/55 transition-colors hover:text-black"
+            className="font-mono text-xs tracking-[0.08em] text-white/45 transition-colors hover:text-white"
           >
             ← Todos os casos
           </Link>
         </div>
       </header>
 
-      <section className="border-b border-black/8">
+      <section className="border-b border-white/10">
         <div className="mx-auto max-w-7xl px-6 py-16 lg:px-10 lg:py-24">
-          <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-            <div>
-              <p className="font-mono text-xs tracking-[0.2em] text-black/40 uppercase">
-                Caso #002
-              </p>
+          <div className="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
+            <div className="max-w-4xl">
+              <div className="flex items-center gap-4">
+                <span className="font-mono text-xs tracking-[0.18em] text-purple-400 uppercase">
+                  Case 002
+                </span>
 
-              <h1 className="mt-5 max-w-4xl text-5xl font-medium leading-[1.02] tracking-[-0.04em] sm:text-6xl lg:text-7xl">
+                <span className="h-px w-10 bg-white/15" />
+
+                <span className="font-mono text-xs tracking-[0.12em] text-white/30 uppercase">
+                  UI State · UX · React
+                </span>
+              </div>
+
+              <h1 className="mt-7 max-w-4xl text-4xl font-medium leading-[1.08] tracking-[-0.03em] sm:text-5xl lg:text-6xl">
                 Estado vazio sem tratamento
               </h1>
 
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-black/60">
+              <p className="mt-7 max-w-2xl text-base leading-7 text-white/55 sm:text-lg">
                 Investigação de uma interface que recebe uma resposta válida,
                 mas não comunica adequadamente a ausência de resultados.
               </p>
             </div>
 
-            <span className="w-fit rounded-full border border-yellow-200 bg-yellow-50 px-4 py-2 text-sm font-medium text-yellow-700">
-              Média severidade
-            </span>
+            <div className="border-l border-white/10 pl-5 lg:min-w-[150px]">
+              <p className="font-mono text-[10px] tracking-[0.15em] text-white/30 uppercase">
+                Severidade
+              </p>
+
+              <p className="mt-2 font-mono text-sm text-white/55">Média</p>
+            </div>
           </div>
 
-          <div className="mt-12 flex flex-wrap gap-2 border-t border-black/10 pt-6">
+          <div className="mt-12 flex flex-wrap gap-2 border-t border-white/10 pt-6">
             {["UI State", "UX", "React", "Data handling"].map((tag) => (
               <span
                 key={tag}
-                className="border border-black/10 bg-white px-3 py-1.5 font-mono text-xs text-black/55"
+                className="border border-white/10 bg-white/[0.03] px-3 py-1.5 font-mono text-[10px] tracking-[0.08em] text-white/45 uppercase"
               >
                 {tag}
               </span>
@@ -115,23 +128,23 @@ export default function Caso002() {
       <section className="mx-auto max-w-7xl px-6 py-16 lg:px-10 lg:py-24">
         <div className="grid gap-16 lg:grid-cols-[260px_1fr]">
           <aside>
-            <p className="font-mono text-xs tracking-[0.18em] text-black/40 uppercase">
+            <p className="font-mono text-xs tracking-[0.18em] text-purple-400 uppercase">
               Investigação
             </p>
 
-            <p className="mt-4 text-sm leading-6 text-black/50">
+            <p className="mt-4 max-w-xs text-sm leading-6 text-white/40">
               Uma resposta vazia também é um estado válido da aplicação e
               precisa ser tratado como tal.
             </p>
           </aside>
 
-          <div className="divide-y divide-black/10 border-t border-black/10">
+          <div className="divide-y divide-white/10 border-t border-white/10">
             {investigacao.map((etapa) => (
               <article
                 key={etapa.numero}
-                className="grid gap-5 py-9 sm:grid-cols-[70px_1fr]"
+                className="grid gap-5 py-10 sm:grid-cols-[70px_1fr]"
               >
-                <span className="font-mono text-xs text-black/35">
+                <span className="font-mono text-xs text-purple-400/70">
                   {etapa.numero}
                 </span>
 
@@ -140,11 +153,11 @@ export default function Caso002() {
                     {etapa.titulo}
                   </h2>
 
-                  <p className="mt-4 max-w-2xl text-base leading-7 text-black/70">
+                  <p className="mt-4 max-w-2xl text-base leading-7 text-white/65">
                     {etapa.descricao}
                   </p>
 
-                  <p className="mt-4 max-w-2xl border-l-2 border-black/10 pl-4 text-sm leading-6 text-black/45">
+                  <p className="mt-4 max-w-2xl border-l-2 border-white/10 pl-4 text-sm leading-6 text-white/40">
                     {etapa.detalhe}
                   </p>
 
@@ -155,7 +168,6 @@ export default function Caso002() {
                   {etapa.numero === "05" && <EmptyResultCorrected />}
 
                   {etapa.numero === "06" && <Result />}
-
                 </div>
               </article>
             ))}
@@ -163,17 +175,17 @@ export default function Caso002() {
         </div>
       </section>
 
-      <section className="border-y border-black/8 bg-white">
+      <section className="border-y border-white/10 bg-[#111114]">
         <div className="mx-auto max-w-7xl px-6 py-16 lg:px-10 lg:py-20">
           <div className="grid gap-10 lg:grid-cols-[260px_1fr]">
             <div>
-              <p className="font-mono text-xs tracking-[0.18em] text-black/40 uppercase">
+              <p className="font-mono text-xs tracking-[0.18em] text-purple-400 uppercase">
                 Aprendizado técnico
               </p>
             </div>
 
             <div>
-              <p className="max-w-3xl text-2xl leading-10 tracking-[-0.02em] text-black/75">
+              <p className="max-w-3xl text-xl leading-9 tracking-[-0.02em] text-white/70 sm:text-2xl">
                 Uma interface não possui apenas os estados de sucesso e erro.
                 Carregamento, ausência de dados e falhas de comunicação
                 representam situações diferentes e precisam de tratamentos
@@ -184,11 +196,14 @@ export default function Caso002() {
         </div>
       </section>
 
-      <footer className="bg-[#171717] px-6 py-8 text-white/40 lg:px-10">
-        <div className="mx-auto flex max-w-7xl justify-between text-xs">
+      <footer className="bg-[#0b0b0d] px-6 py-8 text-white/30 lg:px-10">
+        <div className="mx-auto flex max-w-7xl justify-between border-t border-white/10 pt-6 font-mono text-[10px] tracking-[0.1em] uppercase">
           <span>Behind the Bug</span>
 
-          <Link href="/#casos" className="hover:text-white">
+          <Link
+            href="/#casos"
+            className="transition-colors hover:text-white/70"
+          >
             Voltar para os casos
           </Link>
         </div>

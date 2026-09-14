@@ -1,36 +1,173 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Behind the Bug
 
-## Getting Started
+> Investigue o que aconteceu. Entenda por quê. Corrija o que importa.
 
-First, run the development server:
+**Behind the Bug** é um projeto de estudo e portfólio voltado à investigação de problemas de Front-end.
+
+A proposta é analisar um comportamento a partir de **sintomas e evidências**, identificar a causa raiz e registrar a decisão de correção — sem pular diretamente para uma solução.
+
+O projeto simula uma abordagem de investigação técnica baseada em:
+
+* reprodução do problema;
+* observação do comportamento;
+* coleta de evidências;
+* análise do fluxo da aplicação;
+* identificação da causa raiz;
+* decisão de correção;
+* validação do resultado.
+
+## Objetivo
+
+Demonstrar como problemas comuns de Front-end podem ser investigados de forma estruturada, transformando um comportamento aparentemente simples em uma análise técnica verificável.
+
+O foco não está apenas no código final, mas principalmente no **raciocínio utilizado para chegar até ele**.
+
+## Casos investigados
+
+### 001 · Requisições duplicadas à API
+
+Investigação de chamadas repetidas a uma API e análise do fluxo de dados responsável pelo comportamento.
+
+**Áreas:** React · Network · Performance · Data Fetching
+
+---
+
+### 002 · Estado vazio sem tratamento
+
+Análise de uma interface que não representa adequadamente o estado em que uma consulta retorna sem dados.
+
+**Áreas:** React · API · UI State · UX
+
+---
+
+### 003 · Interface sem feedback durante uma operação
+
+Investigação de uma operação assíncrona em que o estado intermediário não é representado de forma clara na interface.
+
+**Áreas:** React · Async · UI State
+
+## Como funciona
+
+Cada investigação segue uma sequência semelhante:
+
+```text
+Sintoma
+   ↓
+Evidência
+   ↓
+Investigação
+   ↓
+Causa raiz
+   ↓
+Correção
+   ↓
+Resultado
+```
+
+A intenção é separar **o que foi observado** daquilo que foi concluído durante a investigação.
+
+## Nova investigação
+
+O projeto também possui uma área para iniciar uma nova investigação.
+
+É possível registrar:
+
+* título do problema;
+* URL da aplicação;
+* comportamento observado;
+* evidências já disponíveis.
+
+A partir dessas informações, a interface cria um ponto inicial para organizar a investigação.
+
+> A URL registrada atualmente funciona como contexto da investigação. O projeto não afirma realizar uma análise automática da aplicação.
+
+## Stack
+
+* **Next.js**
+* **React**
+* **TypeScript**
+* **Tailwind CSS**
+* **Geist**
+
+## Conceitos praticados
+
+O projeto foi construído para explorar conceitos presentes no desenvolvimento Front-end moderno, como:
+
+* gerenciamento de estados de interface;
+* operações assíncronas;
+* data fetching;
+* comportamento de componentes React;
+* análise de requisições;
+* estados de loading, success, error e empty;
+* investigação orientada por evidências;
+* organização de componentes;
+* acessibilidade e semântica;
+* arquitetura de interfaces.
+
+## Estrutura
+
+```text
+app/
+├── cases/
+│   ├── 001/
+│   ├── 002/
+│   └── 003/
+│
+├── investigar/
+│
+├── globals.css
+├── layout.tsx
+└── page.tsx
+
+components/
+├── InvestigationFlow
+├── NetworkEvidence
+├── RootCause
+├── CorrectionDecision
+├── ResultSummary
+├── StatePanel
+├── AsyncStateEvidence
+├── AsyncStateInvestigation
+├── AsyncRootCause
+├── AsyncStateCorrected
+└── AsyncResult
+```
+
+## Desenvolvimento
+
+Clone o repositório e instale as dependências:
+
+```bash
+npm install
+```
+
+Execute o ambiente de desenvolvimento:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+A aplicação estará disponível em:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```text
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Validação
 
-## Learn More
+Antes de publicar alterações:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run lint
+npm run build
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Status
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Projeto concluído como parte do portfólio de desenvolvimento Front-end.
 
-## Deploy on Vercel
+O escopo atual contempla **três investigações técnicas**, além da área para iniciar novos casos.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Autoria
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Desenvolvido por **Manoela Harrison** como projeto de portfólio e estudo de investigação técnica em Front-end.

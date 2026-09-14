@@ -27,53 +27,61 @@ const etapas = [
 
 export default function InvestigationFlow() {
   return (
-    <div className="mt-8 border border-black/10 bg-[#f7f7f5]">
-      <div className="border-b border-black/10 px-5 py-4">
-        <p className="font-mono text-xs tracking-[0.15em] text-black/40 uppercase">
-          Linha de investigação
-        </p>
+    <div className="mt-8 overflow-hidden border border-white/10 bg-[#111114]">
+      <div className="border-b border-white/10 px-5 py-4">
+        <div className="flex items-center justify-between gap-4">
+          <p className="font-mono text-xs tracking-[0.15em] text-purple-400 uppercase">
+            Linha de investigação
+          </p>
+
+          <span className="font-mono text-[10px] text-white/25">
+            01 — 04
+          </span>
+        </div>
       </div>
 
-      <div className="divide-y divide-black/10">
+      <div className="divide-y divide-white/10">
         {etapas.map((etapa) => (
           <div
             key={etapa.numero}
             className="grid gap-4 px-5 py-6 sm:grid-cols-[48px_150px_1fr]"
           >
-            <span className="font-mono text-xs text-black/35">
+            <span className="font-mono text-xs text-purple-400/70">
               {etapa.numero}
             </span>
 
-            <h3 className="font-medium">{etapa.titulo}</h3>
+            <h3 className="font-medium text-white/85">
+              {etapa.titulo}
+            </h3>
 
-            <p className="max-w-2xl text-sm leading-6 text-black/55">
+            <p className="max-w-2xl text-sm leading-6 text-white/45">
               {etapa.texto}
             </p>
           </div>
         ))}
       </div>
 
-      <div className="border-t border-black/10 bg-white px-5 py-5">
-        <div className="flex flex-wrap items-center gap-2 font-mono text-xs">
-          <span className="border border-black/10 px-3 py-2">
+      <div className="border-t border-white/10 bg-[#0b0b0d] px-5 py-5">
+        <div className="flex flex-wrap items-center gap-2 font-mono text-[10px] uppercase tracking-[0.06em]">
+          <span className="border border-white/10 bg-white/[0.03] px-3 py-2 text-white/45">
             evidência
           </span>
 
-          <span className="text-black/30">→</span>
+          <span className="text-white/20">→</span>
 
-          <span className="border border-black/10 px-3 py-2">
+          <span className="border border-white/10 bg-white/[0.03] px-3 py-2 text-white/45">
             hipótese
           </span>
 
-          <span className="text-black/30">→</span>
+          <span className="text-white/20">→</span>
 
-          <span className="border border-black/10 px-3 py-2">
+          <span className="border border-white/10 bg-white/[0.03] px-3 py-2 text-white/45">
             análise
           </span>
 
-          <span className="text-black/30">→</span>
+          <span className="text-white/20">→</span>
 
-          <span className="border border-black bg-black px-3 py-2 text-white">
+          <span className="border border-purple-400/20 bg-purple-400/10 px-3 py-2 text-purple-300">
             causa raiz
           </span>
         </div>

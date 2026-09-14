@@ -1,8 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f7f7f5;
-  --foreground: #171717;
+  --background: #0b0b0d;
+  --foreground: #f4f1eb;
+  --surface: #111114;
+  --surface-hover: #16161a;
+  --border: rgba(255, 255, 255, 0.1);
+  --muted: rgba(244, 241, 235, 0.58);
+  --subtle: rgba(244, 241, 235, 0.38);
+  --accent: #8b5cf6;
+  --accent-soft: rgba(139, 92, 246, 0.12);
 }
 
 * {
@@ -17,10 +24,15 @@ body {
   margin: 0;
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
 
 a {
   color: inherit;
   text-decoration: none;
+}
+
+::selection {
+  background: var(--accent);
+  color: #ffffff;
 }

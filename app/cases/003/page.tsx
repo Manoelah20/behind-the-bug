@@ -1,62 +1,63 @@
 import Link from "next/link";
-import InvestigationFlow from "../../../components/InvestigationFlow";
-import NetworkEvidence from "../../../components/NetworkEvidence";
-import RootCause from "../../../components/RootCause";
-import CorrectionDecision from "../../../components/CorrectionDecision";
-import ResultSummary from "../../../components/ResultSummary";
+
+import AsyncStateEvidence from "@/components/AsyncStateEvidence";
+import AsyncStateInvestigation from "@/components/AsyncStateInvestigation";
+import AsyncRootCause from "@/components/AsyncRootCause";
+import AsyncStateCorrected from "@/components/AsyncStateCorrected";
+import AsyncResult from "@/components/AsyncResult";
 
 const investigacao = [
   {
     numero: "01",
     titulo: "O sintoma",
     descricao:
-      "O dashboard apresenta uma sensação de lentidão durante o carregamento dos dados iniciais.",
+      "O usuário inicia uma operação e não recebe uma indicação clara de que a ação está sendo processada.",
     detalhe:
-      "A interface eventualmente exibe as informações corretas, mas a atividade de rede indica que o mesmo recurso está sendo solicitado mais de uma vez.",
+      "Sem feedback visual, a interface pode parecer parada. O usuário pode interpretar a ausência de resposta como falha ou tentar executar a mesma ação novamente.",
   },
   {
     numero: "02",
     titulo: "A evidência",
     descricao:
-      "O painel Network do DevTools revela requisições repetidas para o mesmo endpoint durante a renderização inicial.",
+      "A operação depende de uma resposta assíncrona, mas o estado da interface permanece visualmente igual durante o processamento.",
     detalhe:
-      "Os dados retornados são idênticos, mas as chamadas adicionais aumentam o tráfego de rede e geram trabalho desnecessário para a aplicação.",
+      "A investigação concentra-se no intervalo entre o disparo da ação e a conclusão da operação.",
   },
   {
     numero: "03",
     titulo: "A investigação",
     descricao:
-      "A primeira hipótese é que a própria API esteja respondendo mais de uma vez.",
+      "São analisados os estados possíveis da interação: disponível, processando, concluído e falha.",
     detalhe:
-      "Ao comparar os iniciadores das requisições com o ciclo de vida do componente, as evidências apontam para o Front-end e não para a API.",
+      "O objetivo é verificar se a interface representa cada etapa da operação e se impede novas ações enquanto a operação ainda está em andamento.",
   },
   {
     numero: "04",
     titulo: "A causa raiz",
     descricao:
-      "A lógica responsável pela busca dos dados está sendo executada mais vezes do que o necessário durante o ciclo de vida do componente.",
+      "A ação não possui um estado de processamento explicitamente representado no componente.",
     detalhe:
-      "O problema não está na quantidade de dados retornados pela API, mas na forma como o componente inicia a requisição.",
+      "A operação assíncrona existe, mas o estado visual da interface não acompanha seu ciclo de execução.",
   },
   {
     numero: "05",
     titulo: "A correção",
     descricao:
-      "O ciclo de vida da requisição é revisado e a lógica de busca é isolada no ponto adequado de execução.",
+      "O componente passa a controlar explicitamente o estado de processamento da ação.",
     detalhe:
-      "O objetivo não é apenas reduzir o número de chamadas, mas tornar o fluxo de dados previsível e mais fácil de manter.",
+      "Durante a operação, a interface fornece feedback e impede uma nova execução até que a ação atual seja concluída.",
   },
   {
     numero: "06",
     titulo: "O resultado",
     descricao:
-      "O dashboard chega ao mesmo estado final com menos atividade de rede desnecessária.",
+      "O usuário consegue identificar quando a operação começou, quando está em andamento e quando terminou.",
     detalhe:
-      "A investigação demonstra como evidências obtidas no Network podem levar a uma decisão concreta de Front-end, em vez de depender de suposições sobre performance.",
+      "O fluxo fica mais previsível e reduz a possibilidade de ações repetidas causadas pela falta de feedback.",
   },
 ];
 
-export default function Caso001() {
+export default function Case003() {
   return (
     <main className="min-h-screen bg-[#0b0b0d] text-[#f4f1eb]">
       <header className="border-b border-white/10">
@@ -83,23 +84,23 @@ export default function Caso001() {
             <div className="max-w-4xl">
               <div className="flex items-center gap-4">
                 <span className="font-mono text-xs tracking-[0.18em] text-purple-400 uppercase">
-                  Case 001
+                  Case 003
                 </span>
 
                 <span className="h-px w-10 bg-white/15" />
 
                 <span className="font-mono text-xs tracking-[0.12em] text-white/30 uppercase">
-                  Network · Performance · React
+                  UI State · Async · React
                 </span>
               </div>
 
               <h1 className="mt-7 max-w-4xl text-4xl font-medium leading-[1.08] tracking-[-0.03em] sm:text-5xl lg:text-6xl">
-                Requisições duplicadas à API
+                Interface sem feedback durante uma operação
               </h1>
 
               <p className="mt-7 max-w-2xl text-base leading-7 text-white/55 sm:text-lg">
-                Investigação de requisições repetidas e rastreamento do
-                problema até o fluxo de dados do Front-end.
+                Uma ação assíncrona é executada, mas a interface não comunica
+                claramente que o processamento está acontecendo.
               </p>
             </div>
 
@@ -108,23 +109,19 @@ export default function Caso001() {
                 Severidade
               </p>
 
-              <p className="mt-2 font-mono text-sm text-purple-300">
-                Alta
-              </p>
+              <p className="mt-2 font-mono text-sm text-white/55">Média</p>
             </div>
           </div>
 
           <div className="mt-12 flex flex-wrap gap-2 border-t border-white/10 pt-6">
-            {["Network", "Performance", "React", "Data fetching"].map(
-              (tag) => (
-                <span
-                  key={tag}
-                  className="border border-white/10 bg-white/[0.03] px-3 py-1.5 font-mono text-[10px] tracking-[0.08em] text-white/45 uppercase"
-                >
-                  {tag}
-                </span>
-              )
-            )}
+            {["UI State", "Async", "React"].map((tag) => (
+              <span
+                key={tag}
+                className="border border-white/10 bg-white/[0.03] px-3 py-1.5 font-mono text-[10px] tracking-[0.08em] text-white/45 uppercase"
+              >
+                {tag}
+              </span>
+            ))}
           </div>
         </div>
       </section>
@@ -137,8 +134,8 @@ export default function Caso001() {
             </p>
 
             <p className="mt-4 max-w-xs text-sm leading-6 text-white/40">
-              Do sintoma à causa raiz, cada etapa é sustentada por evidências
-              observáveis.
+              O objetivo é observar como a interface representa o ciclo de
+              uma operação assíncrona.
             </p>
           </aside>
 
@@ -165,15 +162,15 @@ export default function Caso001() {
                     {etapa.detalhe}
                   </p>
 
-                  {etapa.numero === "02" && <NetworkEvidence />}
+                  {etapa.numero === "02" && <AsyncStateEvidence />}
 
-                  {etapa.numero === "03" && <InvestigationFlow />}
+                  {etapa.numero === "03" && <AsyncStateInvestigation />}
 
-                  {etapa.numero === "04" && <RootCause />}
+                  {etapa.numero === "04" && <AsyncRootCause />}
 
-                  {etapa.numero === "05" && <CorrectionDecision />}
+                  {etapa.numero === "05" && <AsyncStateCorrected />}
 
-                  {etapa.numero === "06" && <ResultSummary />}
+                  {etapa.numero === "06" && <AsyncResult />}
                 </div>
               </article>
             ))}
@@ -192,10 +189,9 @@ export default function Caso001() {
 
             <div>
               <p className="max-w-3xl text-xl leading-9 tracking-[-0.02em] text-white/70 sm:text-2xl">
-                Problemas de performance nem sempre são causados por APIs
-                lentas. Antes de alterar a infraestrutura, é preciso observar
-                as evidências e entender como a aplicação está produzindo as
-                requisições.
+                Uma operação assíncrona precisa ser representada também no
+                estado visual da interface. O usuário deve conseguir perceber
+                quando uma ação começou, está acontecendo e terminou.
               </p>
             </div>
           </div>

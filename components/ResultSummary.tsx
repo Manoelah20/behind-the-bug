@@ -21,33 +21,39 @@ const resultados = [
 
 export default function ResultSummary() {
   return (
-    <div className="mt-8 border border-black/10 bg-white">
-      <div className="border-b border-black/10 px-5 py-4">
-        <p className="font-mono text-xs tracking-[0.15em] text-black/40 uppercase">
-          Resultado da investigação
-        </p>
+    <div className="mt-8 overflow-hidden border border-white/10 bg-[#111114]">
+      <div className="border-b border-white/10 px-5 py-4">
+        <div className="flex items-center justify-between gap-4">
+          <p className="font-mono text-xs tracking-[0.15em] text-purple-400 uppercase">
+            Resultado da investigação
+          </p>
+
+          <span className="font-mono text-[10px] text-white/25">
+            RESULTADO
+          </span>
+        </div>
       </div>
 
-      <div className="grid divide-y divide-black/10 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
+      <div className="grid divide-y divide-white/10 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
         {resultados.map((resultado) => (
           <div key={resultado.rotulo} className="px-5 py-6">
-            <p className="font-mono text-[10px] tracking-[0.15em] text-black/35 uppercase">
+            <p className="font-mono text-[10px] tracking-[0.15em] text-white/30 uppercase">
               {resultado.rotulo}
             </p>
 
-            <p className="mt-3 text-lg font-medium">
+            <p className="mt-3 text-lg font-medium text-white/85">
               {resultado.valor}
             </p>
 
-            <p className="mt-3 text-sm leading-6 text-black/50">
+            <p className="mt-3 text-sm leading-6 text-white/45">
               {resultado.texto}
             </p>
           </div>
         ))}
       </div>
 
-      <div className="border-t border-black/10 bg-[#f7f7f5] px-5 py-5">
-        <p className="max-w-3xl text-sm leading-6 text-black/60">
+      <div className="border-t border-white/10 bg-[#0b0b0d] px-5 py-5">
+        <p className="max-w-3xl text-sm leading-6 text-white/45">
           A correção resolve a causa identificada sem alterar o resultado
           funcional esperado. O principal ganho é eliminar trabalho
           desnecessário e tornar o fluxo de dados mais previsível.

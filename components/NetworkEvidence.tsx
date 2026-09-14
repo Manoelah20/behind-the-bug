@@ -19,7 +19,7 @@ const requests = [
 
 export default function NetworkEvidence() {
   return (
-    <div className="mt-8 overflow-hidden border border-black/10 bg-[#111] text-white shadow-sm">
+    <div className="mt-8 overflow-hidden border border-black/10 bg-[#111] text-white">
       <div className="flex items-center justify-between border-b border-white/10 px-4 py-3">
         <div>
           <p className="font-mono text-xs text-white/40">Network</p>
@@ -28,7 +28,7 @@ export default function NetworkEvidence() {
           </p>
         </div>
 
-        <span className="rounded-full border border-red-400/30 bg-red-400/10 px-3 py-1 font-mono text-[11px] text-red-300">
+        <span className="border border-red-400/30 bg-red-400/10 px-2.5 py-1 font-mono text-[10px] tracking-[0.12em] text-red-300 uppercase">
           2 requests
         </span>
       </div>
@@ -52,17 +52,17 @@ export default function NetworkEvidence() {
                 key={`${request.endpoint}-${index}`}
                 className="border-b border-white/6 last:border-b-0"
               >
-                <td className="px-4 py-4 text-blue-300">{request.method}</td>
+                <td className="px-4 py-4 text-white/60">{request.method}</td>
 
                 <td className="px-4 py-4 text-white/85">
                   {request.endpoint}
                 </td>
 
-                <td className="px-4 py-4 text-emerald-300">
+                <td className="px-4 py-4 text-white/60">
                   {request.status}
                 </td>
 
-                <td className="px-4 py-4 text-white/50">
+                <td className="px-4 py-4 text-white/60">
                   {request.size}
                 </td>
 

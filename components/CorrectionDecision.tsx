@@ -21,11 +21,17 @@ const decisoes = [
 
 export default function CorrectionDecision() {
   return (
-    <div className="mt-8 border border-black/10 bg-[#171717] text-white">
+    <div className="mt-8 overflow-hidden border border-white/10 bg-[#111114]">
       <div className="border-b border-white/10 px-5 py-4">
-        <p className="font-mono text-xs tracking-[0.15em] text-white/40 uppercase">
-          Decisão de correção
-        </p>
+        <div className="flex items-center justify-between gap-4">
+          <p className="font-mono text-xs tracking-[0.15em] text-purple-400 uppercase">
+            Decisão de correção
+          </p>
+
+          <span className="font-mono text-[10px] text-white/25">
+            03 DECISÕES
+          </span>
+        </div>
       </div>
 
       <div className="divide-y divide-white/10">
@@ -34,13 +40,15 @@ export default function CorrectionDecision() {
             key={decisao.numero}
             className="grid gap-4 px-5 py-6 sm:grid-cols-[48px_190px_1fr]"
           >
-            <span className="font-mono text-xs text-white/30">
+            <span className="font-mono text-xs text-purple-400/70">
               {decisao.numero}
             </span>
 
-            <h3 className="font-medium text-white/90">{decisao.titulo}</h3>
+            <h3 className="font-medium text-white/85">
+              {decisao.titulo}
+            </h3>
 
-            <p className="max-w-2xl text-sm leading-6 text-white/50">
+            <p className="max-w-2xl text-sm leading-6 text-white/45">
               {decisao.texto}
             </p>
           </div>
